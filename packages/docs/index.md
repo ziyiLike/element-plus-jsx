@@ -10,7 +10,7 @@ layout: home
 
 > 组件封装自 [Element Plus](https://element-plus.gitee.io/zh-CN/) 在其基础上适配了 JSX 语法。
 
-<button class="button" onclick="(location.href='/pages/guide/quick-start')">快速开始</button>
+<button class="button" onclick="(location.href='/pages/guide/quick-start.html')">快速开始</button>
 
 ## Get Start
 
