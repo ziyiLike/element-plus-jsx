@@ -4,7 +4,7 @@
 
 ## 文档
 
-[中文文档](https://element-plus-jsx.vercel.app/)
+[中文文档](https://zy.ziyilike.com:20150/)
 
 ## Vue 版本
 
