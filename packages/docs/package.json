@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev",
-    "docs:build": "pnpm register:components && vitepress build",
+    "docs:build": "pnpm register:components && vitepress build --outDir=.vitepress/pages",
     "docs:preview": "vitepress preview",
     "register:components": "vitepress-rc --docsDir ."
   },
