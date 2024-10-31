@@ -2,6 +2,10 @@
 
 基于 Element Plus 扩展 JSX 语法的组件库
 
+## 文档
+
+[中文文档](https://element-plus-jsx.vercel.app/)
+
 ## Vue 版本
 
 vue >= 3.2
