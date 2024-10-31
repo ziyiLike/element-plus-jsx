@@ -1,0 +1,38 @@
+.vp-table table{
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vp-table thead{
+  display: flex !important;
+  width: 100% !important;
+}
+
+.vp-table thead tr th {
+  font-size: 14px !important;
+  text-align: left !important;
+  border: none !important;
+  flex:1 !important;
+  background-color :unset;
+}
+
+.vp-table thead tr {
+  display: flex !important;
+  width: 100% !important;
+  border-top: none !important;
+}
+
+.vp-table tbody tr td {
+  font-size: 14px !important;
+  text-align: left;
+  border: none !important;
+  min-width: 130px !important;
+  flex:1 !important;
+}
+
+.vp-table tbody tr {
+  display: flex !important;
+  background-color :unset !important;
+}
+

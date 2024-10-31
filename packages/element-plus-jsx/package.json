@@ -1,0 +1,57 @@
+{
+  "name": "element-plus-jsx",
+  "version": "0.0.1",
+  "description": "",
+  "module": "es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./es/index.js",
+      "types": "./es/index.d.ts"
+    },
+    "./runtime": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "node ./build.js",
+    "pub": "pnpm run build && pnpm publish"
+  },
+  "types": "es/index.d.ts",
+  "keywords": [
+    "element-plus",
+    "jsx",
+    "tsx",
+    "table column",
+    "form dialog"
+  ],
+  "files": [
+    "es"
+  ],
+  "author": "ziyiLike",
+  "license": "MIT",
+  "homepage": "https://github.com/ziyiLike/element-plus-jsx.git",
+  "dependencies": {
+    "element-plus": "^2.8.6",
+    "lodash-es": "^4.17.21",
+    "vue": "^3.4.29"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@types/lodash-es": "^4.17.7",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "@vue/shared": "^3.5.10",
+    "csstype": "^3.1.2",
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.23.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^5.5.3",
+    "unplugin-element-plus": "^0.7.1",
+    "vite": "^5.2.6",
+    "vue-tsc": "^2.0.10"
+  }
+}

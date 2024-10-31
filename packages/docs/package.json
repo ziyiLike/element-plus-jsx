@@ -1,0 +1,29 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev",
+    "docs:build": "pnpm register:components && vitepress build",
+    "docs:preview": "vitepress preview",
+    "register:components": "vitepress-rc --docsDir ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "postcss": "^8.4.47",
+    "vitepress": "^1.0.1",
+    "vitepress-theme-demoblock": "^3.0.7"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "element-plus": "^2.8.6",
+    "element-plus-jsx": "workspace:^0.0.1",
+    "vite": "^5.4.8",
+    "vite-plugin-inspect": "^0.8.7",
+    "vue": "^3.4.21"
+  }
+}

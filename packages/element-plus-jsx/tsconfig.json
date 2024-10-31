@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "types": ["element-plus/global"],
+    "declaration": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@vue/shared": ["./node_modules/@vue/shared/dist/shared"],
+      "csstype": ["./node_modules/csstype/index"]
+    }
+  },
+  "extends": "../../tsconfig.json",
+  "include": ["./src/*.vue", "./src/*.ts", "./types/*.d.ts"],
+}
