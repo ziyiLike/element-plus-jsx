@@ -1,14 +1,26 @@
 {
   "compilerOptions": {
-    "types": ["element-plus/global"],
+    "types": [
+      "element-plus/global"
+    ],
     "declaration": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "strict": false,
     "paths": {
-      "@vue/shared": ["./node_modules/@vue/shared/dist/shared"],
-      "csstype": ["./node_modules/csstype/index"]
+      "@vue/shared": [
+        "./node_modules/@vue/shared/dist/shared"
+      ],
+      "csstype": [
+        "./node_modules/csstype/index"
+      ]
     }
   },
   "extends": "../../tsconfig.json",
-  "include": ["./src/*.vue", "./src/*.ts", "./types/*.d.ts"],
+  "include": [
+    "./src/**/*.vue",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./types/*.d.ts"
+  ],
 }

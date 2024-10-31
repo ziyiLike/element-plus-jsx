@@ -4,7 +4,7 @@ import type { PropType } from 'vue'
 import type { TableColumn } from './types'
 import { ElTable, ElTableColumn, type TableInstance } from 'element-plus'
 import { useFnOrRefProp } from '../hooks'
-import { getConfig, installPlugins } from '../../src/_utils'
+import { getConfig, installPlugins } from '../_utils'
 
 export default defineComponent({
   props: {
