@@ -1,5 +1,3 @@
-import { toRaw } from 'vue';
-
 const GLOBAL_CONFIG_NAME = '$el-element-jsx';
 const setGlobalConfig = (app, extract) => {
     app.config.globalProperties[GLOBAL_CONFIG_NAME] = {
@@ -11,10 +9,9 @@ const getConfig = (instance, key) => {
     return instance.appContext.config.globalProperties[GLOBAL_CONFIG_NAME]?.[key];
 };
 const installPlugins = (args, useKey) => {
-    console.log(toRaw(args));
     let pluginReturn = args[useKey];
     args.plugins.forEach((fn) => {
-        pluginReturn = fn(Object.assign(toRaw(args), { [useKey]: pluginReturn }));
+        pluginReturn = fn(Object.assign({ [useKey]: pluginReturn }, args));
     });
     return pluginReturn;
 };

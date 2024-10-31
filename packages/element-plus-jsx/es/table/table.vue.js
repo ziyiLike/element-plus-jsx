@@ -15,38 +15,30 @@ var _sfc_main = /* @__PURE__ */ defineComponent({
       required: true
     }
   },
-  setup(_, {
-    attrs,
-    slots
-  }) {
+  setup(props, ctx) {
     const tableRef = shallowRef();
     const plugins = getConfig(getCurrentInstance(), 'tablePlugins') || [];
-    return {
-      attrs,
-      slots,
-      plugins,
+    ctx.expose({
       tableRef
-    };
-  },
-  render() {
-    const {
-      slots,
-      attrs,
-      data
-    } = this;
-    return createVNode(ElTable, mergeProps({
-      "ref": "tableRef"
-    }, attrs, {
-      "data": data,
-      "element-loading-text": attrs.elementLoadingText || 'Loading ...'
+    });
+    return () => createVNode(ElTable, mergeProps({
+      "ref": tableRef
+    }, ctx.attrs, {
+      "data": props.data,
+      "element-loading-text": ctx.attrs.elementLoadingText || 'Loading ...'
     }), {
-      default: () => [shallowReactive(installPlugins(this, 'columns')).filter(res => useFnOrRefProp(res.show) ?? true).map((column, index) => createVNode(ElTableColumn, mergeProps({
+      default: () => [shallowReactive(installPlugins({
+        ...props,
+        ...ctx,
+        tableRef,
+        plugins
+      }, 'columns')).filter(res => useFnOrRefProp(res.show) ?? true).map((column, index) => createVNode(ElTableColumn, mergeProps({
         "key": index
       }, column), {
         default: column.slots?.default,
         header: column.slots?.header
       }))],
-      ...slots
+      ...ctx.slots
     });
   }
 });

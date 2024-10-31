@@ -23,10 +23,12 @@ export interface TableProps<T = unknown> extends ElTableProps<T> {
     style?: CSSProperties;
 }
 export type TablePluginsProps<T = unknown> = {
-    columns: TableColumn<T>[];
+    data: TableProps<T>['data'];
+    columns: TableProps<T>['columns'];
     slots?: Record<string, Component>;
     attrs?: Record<string, any>;
-    data: T[];
     tableRef: Ref<any>;
+    emit: (event: string, ...args: any[]) => void;
+    expose: any;
     [key: string]: any;
 };

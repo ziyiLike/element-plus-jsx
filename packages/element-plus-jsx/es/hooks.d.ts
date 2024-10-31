@@ -14,6 +14,7 @@ export declare function useFnOrRefProp<T = any>(prop: any, ...args: any[]): T;
  * @example 配合 `defineColumns` 使用 （此用法主要用于将配置列拆分于单独文件）
  * const columns = useColumns(
  *    defineColumns((editClick:Fn, deleteClick:Fn) => [{ prop: 'name', label: '姓名' }]),
+ *    { align: 'center' },
  *    editClick,
  *    deleteClick
  * )
@@ -95,7 +96,7 @@ export declare function useColumns<T = unknown>(columns: TableColumn<T>[] | ((..
  * - example/page/xxx/index.vue
  * import exampleColumns from './columns/exampleColumns'
  *
- * <el-tablex :data="data" :columns="useColumns(exampleColumns, editClick, deleteClick)" />
+ * <el-tablex :data="data" :columns="useColumns(exampleColumns, {} editClick, deleteClick)" />
  */
 export declare function defineColumns<T = unknown>(fn: Fn<TableColumn<T>[]>): Fn<TableColumn<T>[]>;
 /**
