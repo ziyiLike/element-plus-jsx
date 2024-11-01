@@ -2,6 +2,7 @@ import { isRef } from 'vue'
 import type { App } from 'vue'
 import { TableColumn, TablePluginsProps } from './table/types'
 import type { Fn, Options, WithInstall } from './tools'
+import { FormItemProps, FormPluginsProps } from './form/types'
 
 export function useFnOrRefProp<T = any>(prop: any, ...args: any[]): T {
   return typeof prop === 'function' ? prop(...args) : isRef(prop) ? prop.value : prop
@@ -28,7 +29,7 @@ export function useFnOrRefProp<T = any>(prop: any, ...args: any[]): T {
  */
 export function useColumns<T = unknown>(
   columns: TableColumn<T>[] | ((...args: any[]) => TableColumn<T>[]),
-  mapAddColumns: TableColumn<T>,
+  mapAddColumns: TableColumn<T> = {},
   ...args: any[]
 ) {
   return (typeof columns === 'function' ? columns(...args) : columns).map((column) => {
@@ -50,7 +51,7 @@ export function useColumns<T = unknown>(
  * - example/page/xxx/index.vue
  * import exampleColumns from './columns/exampleColumns'
  *
- * <el-tablex :data="data" :columns="useColumns(exampleColumns, {} editClick, deleteClick)" />
+ * <el-tablex :data="data" :columns="useColumns(exampleColumns, {}, editClick, deleteClick)" />
  */
 export function defineColumns<T = unknown>(fn: Fn<TableColumn<T>[]>) {
   return fn
@@ -67,6 +68,66 @@ export function defineColumns<T = unknown>(fn: Fn<TableColumn<T>[]>) {
 export function defineColumnsPlugin<T = unknown>(
   fn: (props: TablePluginsProps) => TableColumn<T>[]
 ) {
+  return fn
+}
+
+/**
+ * 表单配置
+ *
+ * @param formFn 表单配置或表单配置函数
+ * @param mapAddFormFn 映射到所有表单项的配置
+ * @param args 函数参数
+ *
+ * @example 单独使用 `useFormFn` 可获得参数类型提示以及参数校验
+ * const formFn = useFormFn([{ prop: 'name', label: '姓名', type: 'input' }], { size: 'mini' })
+ *
+ * @example 配合 `defineFormFn` 使用 （此用法主要用于将配置列拆分于单独文件）
+ * const formFn = useFormFn(
+ *    defineFormFn((userList:any[]) => [{ prop: 'name', label: '姓名', type: 'select', selectProps:{ options: userList } }]),
+ *    { size: 'mini' },
+ *    userList
+ * )
+ *
+ */
+export function useFormFn<T = unknown>(
+  formFn: FormItemProps<T>[] | Fn<FormItemProps<T>[]>,
+  mapAddFormFn: FormItemProps<T> = {},
+  ...args: any[]
+) {
+  return (typeof formFn === 'function' ? formFn(...args) : formFn).map((formItem) => {
+    return { ...formItem, ...mapAddFormFn }
+  })
+}
+
+/**
+ * 定义表单配置函数
+ * - 使用`defineFormFn`与`useFormFn`配合可轻松的将配置拆分至多个文件
+ *
+ * @param fn 表单配置函数
+ * @returns
+ *
+ * @example
+ * - example/page/xxx/formFn/exampleFormFn.tsx
+ * export default defineFormFn((userList:any[]) => [{ prop: 'name', label: '姓名', type: 'select', selectProps:{ options: userList } }])
+ *
+ * - example/page/xxx/index.vue
+ * import exampleColumns from './columns/exampleFormFn'
+ *
+ * <el-formx v-model="form" :formFn="useFormFn(exampleFormFn, {}, userList)" />
+ */
+export function defineFormFn<T = unknown>(fn: Fn<FormItemProps<T>[]>) {
+  return fn
+}
+
+/**
+ * 定义Tablex插件 fn
+ * @param fn 插件函数
+ * @returns
+ *
+ * @example
+ * const xxxFormplugin = defineFormPlugin((props) => props.formFn)
+ */
+export function defineFormPlugin<T = unknown>(fn: (props: FormPluginsProps) => FormItemProps<T>[]) {
   return fn
 }
 
