@@ -98,7 +98,7 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
 }
 
 export type FormProps<T = unknown> = ElFormProps & {
-  modelValue?: T
+  model?: T
   slots?: {
     default?: Fn<Component | null>
   }

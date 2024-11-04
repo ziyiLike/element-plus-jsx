@@ -33,7 +33,7 @@ export function useColumns<T = unknown>(
   ...args: any[]
 ) {
   return (typeof columns === 'function' ? columns(...args) : columns).map((column) => {
-    return { ...column, ...mapAddColumns }
+    return { ...mapAddColumns, ...column }
   })
 }
 
@@ -95,7 +95,7 @@ export function useFormFn<T = unknown>(
   ...args: any[]
 ) {
   return (typeof formFn === 'function' ? formFn(...args) : formFn).map((formItem) => {
-    return { ...formItem, ...mapAddFormFn }
+    return { ...mapAddFormFn, ...formItem }
   })
 }
 

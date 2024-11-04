@@ -10,11 +10,11 @@ import defaultPlugins from './plugins'
 
 export default defineComponent({
   props: {
-    modelValue: { type: Object as PropType<any>, default: () => ({}) },
+    model: { type: Object as PropType<any>, default: () => ({}) },
     formFn: { type: Array as PropType<FormItemProps[]>, default: () => [] }
   },
   setup(props, ctx) {
-    const form = useModel(props, 'modelValue')
+    const form = useModel(props, 'model')
     const formRef = shallowRef<FormInstance>()
     const plugins = getConfig(getCurrentInstance()!, 'formPlugins') || []
 
