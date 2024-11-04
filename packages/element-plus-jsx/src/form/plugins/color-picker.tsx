@@ -1,28 +1,23 @@
 import { _get, _set } from '../../_utils'
 import { defineFormPlugin } from '../../hooks'
-import { ElInput, ElInputNumber } from 'element-plus'
+import { ElColorPicker } from 'element-plus'
 
 export default defineFormPlugin((props) => {
   return props.formFn.map((item) => {
-    const InputEl = item.inputProps?.type === 'input-number' ? ElInputNumber : ElInput
-    if (!item.slots?.default && item.type === 'input') {
+    if (!item.slots?.default && item.type === 'color-picker') {
       return {
         ...item,
         slots: {
           default: () => (
-            <InputEl
+            <ElColorPicker
               style={{ width: '100%' }}
               modelValue={_get(props.form.value, item.prop)}
               onUpdate:modelValue={(val) => {
-                _set(
-                  props.form.value,
-                  item.prop,
-                  ['number', 'input-number'].includes(item.inputProps?.type) ? Number(val) : val
-                )
+                _set(props.form.value, item.prop, val)
               }}
               placeholder={item.placeholder}
-              v-slots={item.inputProps?.slots}
-              {...item.inputProps}
+              v-slots={item.colorPickerProps?.slots}
+              {...item.colorPickerProps}
             />
           )
         }

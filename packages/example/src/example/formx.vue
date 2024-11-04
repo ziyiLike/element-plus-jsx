@@ -1,6 +1,11 @@
 <template>
-  <div style="width: 800px">
-    <el-formx labelWidth="100px" v-model="state.form" :formFn="formFn"></el-formx>
+  <div class="flex">
+    <div style="width: 800px">
+      <el-formx labelWidth="100px" v-model="state.form" :formFn="formFn"> </el-formx>
+    </div>
+    <div style="width: 400px">
+      {{ JSON.stringify(state.form, null, 2) }}
+    </div>
   </div>
 </template>
 
@@ -42,11 +47,38 @@ const formFn = useFormFn<IForm>([
     },
   },
   {
+    prop: 'sex',
+    type: 'select',
+    label: '性别',
+    width: 50,
+    selectOptions: [
+      { label: '男', value: 0 },
+      { label: '女', value: 1 },
+    ],
+  },
+  {
     prop: 'address',
     type: 'input',
     label: '地址',
     inputProps: {
       type: 'textarea',
+    },
+  },
+  {
+    prop: 'address',
+    type: 'upload',
+    uploadProps: {
+      slots: {
+        default: () => <el-button>上传</el-button>,
+      },
+    },
+    label: '地址',
+  },
+  {
+    slots: {
+      default: () => {
+        return <el-button>添加</el-button>;
+      },
     },
   },
 ]);

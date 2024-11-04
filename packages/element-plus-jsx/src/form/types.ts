@@ -35,7 +35,7 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
   show?: FnRefAble<boolean, FormPluginsProps<T>>
   prop?: string | keyof T
   slots?: {
-    default?: Fn<Component | null>
+    default?: ({ form, formRef }: { form: T; formRef: Ref<FormInstance> }) => Component | null
     row?: ({ form, formRef }: { form: T; formRef: Ref<FormInstance> }) => Component | null
     label?: ({ label }: { label: string }) => Component | null
     error?: ({ error }: { error: string }) => Component | null
@@ -43,8 +43,6 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
 
   type?:
     | 'input'
-    | 'textarea'
-    | 'select'
     | 'autocomplete'
     | 'cascader'
     | 'checkbox'
@@ -53,6 +51,8 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
     | 'mention'
     | 'radio'
     | 'rate'
+    | 'select'
+    | 'select-v2'
     | 'slider'
     | 'switch'
     | 'time-picker'
@@ -69,22 +69,22 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
   inputProps?: InstallCustomType<InputInstance | InputNumberInstance>
   autocompleteProps?: InstallCustomType<AutocompleteInstance>
   cascaderProps?: InstallCustomType<CascaderInstance>
-  checkboxProps?: InstallCustomType<CheckboxGroupInstance>
-  checkOptions?: InstallCustomType<CheckboxInstance>
+  checkboxProps?: InstallCustomType<CheckboxGroupInstance & { button: boolean }>
+  checkboxOptions?: InstallCustomType<CheckboxInstance>[]
   checkboxButtonOptions?: InstallCustomType<CheckboxInstance>
   colorPickerProps?: InstallCustomType<ColorPickerInstance>
   datePickerProps?: InstallCustomType<DatePickerInstance>
   mentionProps?: InstallCustomType<MentionInstance>
   radioProps?: InstallCustomType<RadioGroupInstance>
-  radioOptions?: InstallCustomType<RadioInstance>
+  radioOptions?: InstallCustomType<RadioInstance>[]
   rateProps?: InstallCustomType<RateInstance>
   selectProps?: InstallCustomType<InstanceType<typeof ElSelect>>
-  selectOptions?: InstallCustomType<InstanceType<typeof ElOption>>
+  selectOptions?: InstallCustomType<InstanceType<typeof ElOption>>[]
   selectGroupOption?: InstallCustomType<
     InstanceType<typeof ElOptionGroup> & {
       selectOptions?: InstallCustomType<InstanceType<typeof ElOption>>
     }
-  >
+  >[]
   selectV2Props?: InstallCustomType<InstanceType<typeof ElSelectV2>>
   sliderProps?: InstallCustomType<SliderInstance>
   switchProps?: InstallCustomType<SwitchInstance>

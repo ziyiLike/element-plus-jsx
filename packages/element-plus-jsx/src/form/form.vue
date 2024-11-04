@@ -36,7 +36,7 @@ export default defineComponent({
         )
           .filter((res) => useFnOrRefProp(res.show, { ...props, ...ctx, form, formRef }) ?? true)
           .map((fn, index) =>
-            fn.slots.row ? (
+            fn.slots?.row ? (
               <span style={{ width: transWidth(fn.width) || '100%' }}>
                 {fn.slots.row({ form, formRef })}
               </span>
@@ -44,7 +44,10 @@ export default defineComponent({
               <ElFormItem
                 style={{ width: transWidth(fn.width) || '100%' }}
                 key={index}
-                v-slots={fn.slots}
+                v-slots={{
+                  ...fn.slots,
+                  default: () => fn.slots?.default?.({ form, formRef })
+                }}
                 {...fn}
               />
             )

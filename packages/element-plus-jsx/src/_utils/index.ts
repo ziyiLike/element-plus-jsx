@@ -17,7 +17,7 @@ export const getConfig = (instance: ComponentInternalInstance, key: string) => {
 export const installPlugins = <T = any>(args: any, useKey: string): T => {
   let pluginReturn = args[useKey]
   args.plugins.forEach((fn: Fn) => {
-    pluginReturn = fn(Object.assign({ [useKey]: pluginReturn }, args))
+    pluginReturn = fn(Object.assign(args, { [useKey]: pluginReturn }))
   })
   return pluginReturn
 }
