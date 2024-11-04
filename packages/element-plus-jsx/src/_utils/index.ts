@@ -21,3 +21,33 @@ export const installPlugins = <T = any>(args: any, useKey: string): T => {
   })
   return pluginReturn
 }
+
+export const transWidth = (width?: string | number) => {
+  if (typeof width === 'number') {
+    return `${width}%`
+  }
+  return width
+}
+
+export const filterKeys = (obj: Record<string, any> | undefined, keys: string[]) => {
+  if (!obj || !keys) return obj
+  return Object.keys(obj).reduce((acc: any, key: any) => {
+    if (!keys.includes(key)) {
+      acc[key] = obj[key]
+    }
+    return acc
+  }, {})
+}
+
+export const _get = (obj: any, path: any) => {
+  return path.split('.').reduce((acc: any, key: any) => acc?.[key], obj)
+}
+
+export const _set = (obj: any, path: any, value: any) => {
+  const keys = path.split('.')
+  const lastKey = keys.pop()
+  const lastObj = keys.reduce((acc: any, key: any) => {
+    return acc[key] || (acc[key] = {})
+  }, obj)
+  lastObj[lastKey!] = value
+}

@@ -31,13 +31,16 @@ import { InstallCustomType, Fn, FnAble, FnRefAble, ArrayAble } from '../tools'
 import { Component, Ref } from 'vue'
 
 export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
+  width?: string | number
   show?: FnRefAble<boolean, FormPluginsProps<T>>
   prop?: string | keyof T
   slots?: {
     default?: Fn<Component | null>
+    row?: ({ form, formRef }: { form: T; formRef: Ref<FormInstance> }) => Component | null
     label?: ({ label }: { label: string }) => Component | null
     error?: ({ error }: { error: string }) => Component | null
   }
+
   type?:
     | 'input'
     | 'textarea'
@@ -57,7 +60,10 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
     | 'transfer'
     | 'tree'
     | 'upload'
+
+  key?: string | number
   rules?: ArrayAble<FormItemRule>
+  placeholder?: string
 
   // install type.
   inputProps?: InstallCustomType<InputInstance | InputNumberInstance>
@@ -91,7 +97,8 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
   [key: string]: any
 }
 
-export type FormProps = ElFormProps & {
+export type FormProps<T = unknown> = ElFormProps & {
+  modelValue?: T
   slots?: {
     default?: Fn<Component | null>
   }
@@ -100,7 +107,7 @@ export type FormProps = ElFormProps & {
 }
 
 export type FormPluginsProps<T = unknown> = {
-  form: T
+  form: Ref<T>
   formFn: FormItemProps<T>[]
   slots?: Record<string, Component>
   attrs?: Record<string, any>

@@ -4,8 +4,9 @@ import type { PropType } from 'vue'
 import type { FormInstance } from 'element-plus'
 import { ElForm, ElFormItem } from 'element-plus'
 import { FormItemProps } from './types'
-import { getConfig, installPlugins } from '../_utils'
+import { getConfig, installPlugins, transWidth } from '../_utils'
 import { useFnOrRefProp } from '../hooks'
+import defaultPlugins from './plugins'
 
 export default defineComponent({
   props: {
@@ -17,17 +18,37 @@ export default defineComponent({
     const formRef = shallowRef<FormInstance>()
     const plugins = getConfig(getCurrentInstance()!, 'formPlugins') || []
 
+    // install default plugins
+    plugins.unshift(...defaultPlugins)
+
     ctx.expose({ formRef })
 
     return () => (
-      <ElForm ref={formRef} {...ctx.attrs} v-slots={ctx.slots} model={form.value}>
+      <ElForm
+        style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}
+        ref={formRef}
+        {...ctx.attrs}
+        v-slots={ctx.slots}
+        model={form.value}
+      >
         {shallowReactive(
           installPlugins<FormItemProps[]>({ ...props, ...ctx, form, formRef, plugins }, 'formFn')
         )
           .filter((res) => useFnOrRefProp(res.show, { ...props, ...ctx, form, formRef }) ?? true)
-          .map((fn, index) => (
-            <ElFormItem key={index} {...fn} v-slots={fn.slots} />
-          ))}
+          .map((fn, index) =>
+            fn.slots.row ? (
+              <span style={{ width: transWidth(fn.width) || '100%' }}>
+                {fn.slots.row({ form, formRef })}
+              </span>
+            ) : (
+              <ElFormItem
+                style={{ width: transWidth(fn.width) || '100%' }}
+                key={index}
+                v-slots={fn.slots}
+                {...fn}
+              />
+            )
+          )}
       </ElForm>
     )
   }
