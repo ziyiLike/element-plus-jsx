@@ -92,7 +92,7 @@ body {
     }
   }
 
-  .is-active {
+  .VPSidebarItem .is-active {
     background-color: var(--vp-code-color) !important;
     padding: 3px 15px !important;
     border-radius: 5px !important;
@@ -102,7 +102,7 @@ body {
     background-color: unset !important;
   }
 
-  .is-active .text {
+  .VPSidebarItem .is-active .text {
     color: #fff !important;
     cursor: pointer;
   }

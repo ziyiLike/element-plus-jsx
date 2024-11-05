@@ -39,7 +39,8 @@ export default defineConfig({
         text: '插件',
         items: [
           { text: '插件说明', link: '/pages/plugins/description.md' },
-          { text: '表格插件', link: '/pages/plugins/tablePlugins.md' }
+          { text: '表格插件', link: '/pages/plugins/tablePlugins.md' },
+          { text: '表单插件', link: '/pages/plugins/formPlugins.md' }
         ]
       },
       {
