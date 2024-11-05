@@ -1,5 +1,5 @@
 import { _get, _set } from '../../_utils'
-import { defineFormPlugin } from '../../hooks'
+import { defineFormPlugin, useFnOrRefProp } from '../../hooks'
 import { ElSwitch } from 'element-plus'
 
 export default defineFormPlugin((props) => {
@@ -15,6 +15,7 @@ export default defineFormPlugin((props) => {
               onUpdate:modelValue={(val) => {
                 _set(props.form.value, item.prop, val)
               }}
+              disabled={useFnOrRefProp(item.disabled, props)}
               placeholder={item.placeholder}
               v-slots={item.switchProps?.slots}
               {...item.switchProps}

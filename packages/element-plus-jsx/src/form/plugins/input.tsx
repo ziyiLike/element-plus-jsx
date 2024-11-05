@@ -1,5 +1,5 @@
 import { _get, _set } from '../../_utils'
-import { defineFormPlugin } from '../../hooks'
+import { defineFormPlugin, useFnOrRefProp } from '../../hooks'
 import { ElInput, ElInputNumber } from 'element-plus'
 
 export default defineFormPlugin((props) => {
@@ -20,6 +20,7 @@ export default defineFormPlugin((props) => {
                   ['number', 'input-number'].includes(item.inputProps?.type) ? Number(val) : val
                 )
               }}
+              disabled={useFnOrRefProp(item.disabled, props)}
               placeholder={item.placeholder}
               v-slots={item.inputProps?.slots}
               {...item.inputProps}

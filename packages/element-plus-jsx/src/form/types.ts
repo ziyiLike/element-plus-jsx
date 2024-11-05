@@ -35,8 +35,8 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
   show?: FnRefAble<boolean, FormPluginsProps<T>>
   prop?: string | keyof T
   slots?: {
-    default?: ({ form, formRef }: { form: T; formRef: Ref<FormInstance> }) => Component | null
-    row?: ({ form, formRef }: { form: T; formRef: Ref<FormInstance> }) => Component | null
+    default?: (args: FormPluginsProps<T>) => Component | null
+    row?: (args: FormPluginsProps<T>) => Component | null
     label?: ({ label }: { label: string }) => Component | null
     error?: ({ error }: { error: string }) => Component | null
   }
@@ -64,6 +64,7 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
   key?: string | number
   rules?: ArrayAble<FormItemRule>
   placeholder?: string
+  disabled?: FnRefAble<boolean, FormPluginsProps<T>>
 
   // install type.
   inputProps?: InstallCustomType<InputInstance | InputNumberInstance>

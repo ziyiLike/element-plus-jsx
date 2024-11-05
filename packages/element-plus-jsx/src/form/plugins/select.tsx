@@ -1,5 +1,5 @@
 import { _get, _set } from '../../_utils'
-import { defineFormPlugin } from '../../hooks'
+import { defineFormPlugin, useFnOrRefProp } from '../../hooks'
 import { ElSelect, ElOptionGroup, ElOption } from 'element-plus'
 
 export default defineFormPlugin((props) => {
@@ -15,6 +15,7 @@ export default defineFormPlugin((props) => {
               onUpdate:modelValue={(val) => {
                 _set(props.form.value, item.prop, val)
               }}
+              disabled={useFnOrRefProp(item.disabled, props)}
               v-slots={item.selectProps?.slots}
               {...item.selectProps}
             >
