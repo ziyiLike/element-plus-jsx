@@ -1,10 +1,10 @@
-.vp-table table{
+.vp-table table {
   width: 100% !important;
   display: flex !important;
   flex-direction: column !important;
 }
 
-.vp-table thead{
+.vp-table thead {
   display: flex !important;
   width: 100% !important;
 }
@@ -13,8 +13,8 @@
   font-size: 14px !important;
   text-align: left !important;
   border: none !important;
-  flex:1 !important;
-  background-color :unset;
+  flex: 1 !important;
+  background-color: unset;
 }
 
 .vp-table thead tr {
@@ -28,11 +28,82 @@
   text-align: left;
   border: none !important;
   min-width: 130px !important;
-  flex:1 !important;
+  flex: 1 !important;
 }
 
 .vp-table tbody tr {
   display: flex !important;
-  background-color :unset !important;
+  background-color: unset !important;
 }
 
+itip::before {
+  content: '[i]' !important;
+  position: relative !important;
+  font-weight: 900 !important;
+  font-size: 14px !important;
+  font-family: var(--vp-font-mono) !important;
+  color: var(--vp-code-color) !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+  cursor: pointer !important;
+}
+
+html {
+  --vp-sidebar-bg-color: #fff !important;
+}
+
+body {
+  @media (min-width: 1280px) {
+    .container,
+    .content {
+      min-width: 1020px !important;
+    }
+
+    .content-container {
+      max-width: 920px !important;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .VPNavBar {
+      background: #fff !important;
+    }
+
+    .VPSidebar {
+      padding-left: 50px !important;
+      width: 300px !important;
+    }
+
+    .VPNavBar.has-sidebar .title {
+      padding-left: 0px !important;
+      width: 0 !important;
+    }
+
+    .VPNavBar.has-sidebar .title > span {
+      margin-left: 50px;
+    }
+
+    .VPNavBar.has-sidebar .divider {
+      padding-left: 0 !important;
+    }
+
+    .VPContent.has-sidebar {
+      padding-left: 300px !important;
+    }
+  }
+
+  .is-active {
+    background-color: var(--vp-code-color) !important;
+    padding: 3px 15px !important;
+    border-radius: 5px !important;
+  }
+
+  .indicator {
+    background-color: unset !important;
+  }
+
+  .is-active .text {
+    color: #fff !important;
+    cursor: pointer;
+  }
+}

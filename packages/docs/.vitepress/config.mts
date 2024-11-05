@@ -30,7 +30,10 @@ export default defineConfig({
       },
       {
         text: '组件',
-        items: [{ text: 'Tablex', link: '/pages/compoents/tablex' }]
+        items: [
+          { text: 'Tablex', link: '/pages/compoents/tablex' },
+          { text: 'Formx', link: '/pages/compoents/formx' }
+        ]
       },
       {
         text: '插件',
@@ -48,6 +51,14 @@ export default defineConfig({
               { text: 'useColumns', link: '/pages/hooks/useColumns.md' },
               { text: 'defineColumns', link: '/pages/hooks/defineColumns.md' },
               { text: 'defineColumnsPlugin', link: '/pages/hooks/defineColumnsPlugin.md' }
+            ]
+          },
+          {
+            text: 'Formx',
+            items: [
+              { text: 'useFormFn', link: '/pages/hooks/useFormFn.md' },
+              { text: 'defineFormFn', link: '/pages/hooks/defineFormFn.md' },
+              { text: 'defineFormFnPlugin', link: '/pages/hooks/defineFormFnPlugin.md' }
             ]
           }
         ]

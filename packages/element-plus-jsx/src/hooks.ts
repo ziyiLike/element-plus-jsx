@@ -125,9 +125,11 @@ export function defineFormFn<T = unknown>(fn: Fn<FormItemProps<T>[]>) {
  * @returns
  *
  * @example
- * const xxxFormplugin = defineFormPlugin((props) => props.formFn)
+ * const xxxFormplugin = defineFormFnPlugin((props) => props.formFn)
  */
-export function defineFormPlugin<T = unknown>(fn: (props: FormPluginsProps) => FormItemProps<T>[]) {
+export function defineFormFnPlugin<T = unknown>(
+  fn: (props: FormPluginsProps) => FormItemProps<T>[]
+) {
   return fn
 }
 

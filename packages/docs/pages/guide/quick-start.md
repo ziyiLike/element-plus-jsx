@@ -63,9 +63,10 @@ app.mount('#app')
 
 <div class=vp-table>
 
-| 名称         | 类型                  | 默认值 | 说明       |
-| ------------ | --------------------- | ------ | ---------- |
-| prefix       | string                | `el`   | 组件名前缀 |
-| tablePlugins | `Fn<TableColumn[]>[]` | []     | 表格插件   |
+| 名称         | 类型                    | 默认值 | 说明       |
+| ------------ | ----------------------- | ------ | ---------- |
+| prefix       | string                  | `el`   | 组件名前缀 |
+| tablePlugins | `Fn<TableColumn[]>[]`   | []     | 表格插件   |
+| formPlugins  | `Fn<FormItemProps[]>[]` | []     | 表单插件   |
 
 </div>

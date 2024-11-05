@@ -60,6 +60,7 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
     | 'transfer'
     | 'tree'
     | 'upload'
+    | string
 
   key?: string | number
   rules?: ArrayAble<FormItemRule>
@@ -81,7 +82,7 @@ export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
   rateProps?: InstallCustomType<RateInstance>
   selectProps?: InstallCustomType<InstanceType<typeof ElSelect>>
   selectOptions?: InstallCustomType<InstanceType<typeof ElOption>>[]
-  selectGroupOption?: InstallCustomType<
+  selectGroupOptions?: InstallCustomType<
     InstanceType<typeof ElOptionGroup> & {
       selectOptions?: InstallCustomType<InstanceType<typeof ElOption>>
     }

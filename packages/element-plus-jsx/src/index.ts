@@ -11,7 +11,7 @@ export {
   defineColumnsPlugin,
   useFormFn,
   defineFormFn,
-  defineFormPlugin
+  defineFormFnPlugin
 } from './hooks'
 
 export type {} from './components'

@@ -1,8 +1,8 @@
 import { _get, _set } from '../../_utils'
-import { defineFormPlugin, useFnOrRefProp } from '../../hooks'
+import { defineFormFnPlugin, useFnOrRefProp } from '../../hooks'
 import { ElSelectV2 } from 'element-plus'
 
-export default defineFormPlugin((props) => {
+export default defineFormFnPlugin((props) => {
   return props.formFn.map((item) => {
     if (!item.slots?.default && item.type === 'select-v2') {
       return {

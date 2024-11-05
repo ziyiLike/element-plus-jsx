@@ -1,8 +1,8 @@
 import { _get, _set } from '../../_utils'
-import { defineFormPlugin, useFnOrRefProp } from '../../hooks'
+import { defineFormFnPlugin, useFnOrRefProp } from '../../hooks'
 import { ElSelect, ElOptionGroup, ElOption } from 'element-plus'
 
-export default defineFormPlugin((props) => {
+export default defineFormFnPlugin((props) => {
   return props.formFn.map((item) => {
     if (!item.slots?.default && item.type === 'select') {
       return {
@@ -15,11 +15,12 @@ export default defineFormPlugin((props) => {
               onUpdate:modelValue={(val) => {
                 _set(props.form.value, item.prop, val)
               }}
+              placeholder={item.placeholder}
               disabled={useFnOrRefProp(item.disabled, props)}
               v-slots={item.selectProps?.slots}
               {...item.selectProps}
             >
-              {item.selectGroupOption?.map((groupOption) => {
+              {item.selectGroupOptions?.map((groupOption) => {
                 return (
                   <ElOptionGroup {...groupOption} v-slots={groupOption.slots}>
                     {groupOption.selectOptions?.map((option) => {

@@ -24,7 +24,7 @@ example/page/xxx/index.vue
   <el-tablex :data="data" :columns="useColumns(exampleColumns, {}, editClick, deleteClick)" />
 </template>
 <script setup lang="tsx">
-import { useColumns } from '@/hooks/useColumns'
+import { useColumns } from 'element-plus-jsx'
 import exampleColumns from './columns/exampleColumns'
 
 const editClick = () => {}

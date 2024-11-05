@@ -1,17 +1,17 @@
 <template>
   <div class="flex">
     <div style="width: 800px">
-      <el-formx labelWidth="100px" :model="state.form" :formFn="formFn"> </el-formx>
+      <el-formx ref="formRef" labelWidth="100px" :model="form" :formFn="formFn"> </el-formx>
     </div>
     <div style="width: 400px">
-      {{ JSON.stringify(state.form, null, 2) }}
+      {{ JSON.stringify(form, null, 2) }}
     </div>
   </div>
 </template>
 
 <script setup lang="tsx">
 import { useFormFn } from 'element-plus-jsx/runtime';
-import { reactive } from 'vue';
+import { ref } from 'vue';
 
 type IForm = {
   name: string;
@@ -20,8 +20,13 @@ type IForm = {
   address: string;
 };
 
-const state = reactive({
-  form: {} as IForm,
+const formRef = ref();
+
+const form = ref<IForm>({
+  name: '',
+  age: 0,
+  sex: '',
+  address: '',
 });
 
 const formFn = useFormFn<IForm>(
@@ -77,11 +82,15 @@ const formFn = useFormFn<IForm>(
       width: 100,
       slots: {
         default: () => {
-          return <el-button>添加</el-button>;
+          return <el-button onClick={submit}>添加</el-button>;
         },
       },
     },
   ],
   { width: 50 }
 );
+
+const submit = () => {
+  formRef.value.formRef.validate();
+};
 </script>

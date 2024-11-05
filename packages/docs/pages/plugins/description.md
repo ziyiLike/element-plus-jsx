@@ -24,6 +24,7 @@ app.use(ElementPlus)
 app.use(ElementPlusJSX, {
   prefix: 'el',
   tablePlugins: plugins.tablePlugins
+  formPlugins: plugins.formPlugins
 })
 app.mount('#app')
 ```
