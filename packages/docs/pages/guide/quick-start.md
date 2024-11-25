@@ -8,7 +8,7 @@ outline: deep
 
 ## Vue 版本
 
-vue >= 3.2
+vue >= 3.4
 
 ## 安装
 
