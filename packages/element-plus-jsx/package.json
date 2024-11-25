@@ -1,6 +1,6 @@
 {
   "name": "element-plus-jsx",
-  "version": "0.0.2-beta",
+  "version": "0.0.3-beta",
   "description": "",
   "module": "es/index.js",
   "exports": {
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "node ./build.js",
-    "pub": "pnpm run build && pnpm publish"
+    "pub": "pnpm publish"
   },
   "types": "es/index.d.ts",
   "keywords": [

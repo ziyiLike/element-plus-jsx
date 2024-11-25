@@ -10,7 +10,7 @@ importers:
       '@vitejs/plugin-vue': ^5.1.4
       '@vitejs/plugin-vue-jsx': ^4.0.0
       element-plus: ^2.8.6
-      element-plus-jsx: workspace:^0.0.1-beta
+      element-plus-jsx: workspace
       postcss: ^8.4.47
       vite: ^5.4.8
       vite-plugin-inspect: ^0.8.7
@@ -74,7 +74,7 @@ importers:
       '@vitejs/plugin-vue': ^5.1.4
       '@vitejs/plugin-vue-jsx': ^4.0.0
       element-plus: ^2.8.6
-      element-plus-jsx: workspace:^0.0.1-beta
+      element-plus-jsx: workspace
       typescript: ^5.5.3
       vite: ^5.4.8
       vue: ^3.5.10

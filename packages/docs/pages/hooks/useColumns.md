@@ -52,7 +52,7 @@ export function useColumns<T = unknown>(
   ...args: any[]
 ) {
   return (typeof columns === 'function' ? columns(...args) : columns).map(column => {
-    return { ...column, ...mapAddColumns }
+    return { ...mapAddColumns, ...column }
   })
 }
 ```

@@ -7,9 +7,10 @@ export type RefAble<T> = Ref<T> | T
 export type FnRefAble<T, R = any> = T | Ref<T> | ((args: R) => T)
 export type LooseRequired<T> = { [P in keyof T & Required<T>]: T[P] }
 export type LooseValueOf<T> = T extends ArrayAble<infer U> ? U : T
-export type Options = {
+export type Options<T = any, E = any> = {
   prefix?: string
-  tablePlugins?: any[]
+  tablePlugins?: T[]
+  formPlugins?: E[]
 }
 export type WithInstall<T> = T & Plugin
 export type InstallCustomType<T> = Partial<T> & {

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "element-plus": "^2.8.6",
-    "element-plus-jsx": "workspace:^0.0.1-beta",
+    "element-plus-jsx": "workspace",
     "vue": "^3.5.10"
   },
   "devDependencies": {
