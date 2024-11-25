@@ -42,7 +42,7 @@ const state = reactive({
   form: {} as IForm
 })
 
-const formFn = useFormFn<IItem>([
+const formFn = useFormFn<IForm>([
   {
     label: '姓名',
     prop: 'name',
@@ -143,7 +143,7 @@ const submit = () => {
 
 `el-formx`兼容了所有的 element-plus 表单组件, 通过配置项的`type`属性可指定需要渲染的组件。
 
-::: tip
+::: tips
 原则上，`type`的属性即为`el-xxx`的组件名。 例如：`type="input"`，则渲染`el-input`组件。 同时对应的组件参数 Props 属性为`${type}Props`，例如：`type="input"`，则透传 Props 属性为`inputProps`。以下是一些例外情况
 :::
 
