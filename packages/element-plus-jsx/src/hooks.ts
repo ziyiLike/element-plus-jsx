@@ -31,7 +31,7 @@ export function useColumns<T = unknown>(
   columns: TableColumn<T>[] | ((...args: any[]) => TableColumn<T>[]),
   mapAddColumns: TableColumn<T> = {},
   ...args: any[]
-) {
+): TableColumn<T>[] {
   return (typeof columns === 'function' ? columns(...args) : columns).map((column) => {
     return { ...mapAddColumns, ...column }
   })
@@ -93,7 +93,7 @@ export function useFormFn<T = unknown>(
   formFn: FormItemProps<T>[] | Fn<FormItemProps<T>[]>,
   mapAddFormFn: FormItemProps<T> = {},
   ...args: any[]
-) {
+): FormItemProps<T>[] {
   return (typeof formFn === 'function' ? formFn(...args) : formFn).map((formItem) => {
     return { ...mapAddFormFn, ...formItem }
   })

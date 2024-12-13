@@ -27,7 +27,7 @@ import type {
   TreeInstance,
   UploadInstance
 } from 'element-plus'
-import { InstallCustomType, Fn, FnAble, FnRefAble, ArrayAble } from '../tools'
+import { InstallCustomType, Fn, FnRefAble, ArrayAble } from '../tools'
 import { Component, Ref } from 'vue'
 
 export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
@@ -104,7 +104,7 @@ export type FormProps<T = unknown> = ElFormProps & {
   slots?: {
     default?: Fn<Component | null>
   }
-  formFn: FnAble<FormItemProps[]>
+  formFn: FormItemProps[]
   [key: string]: any
 }
 
