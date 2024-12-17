@@ -19,7 +19,7 @@ export default defineComponent({
     const plugins = getConfig(getCurrentInstance()!, 'formPlugins') || []
 
     // install default plugins
-    plugins.unshift(...defaultPlugins)
+    plugins.push(...defaultPlugins)
 
     ctx.expose({ formRef })
 
