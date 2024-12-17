@@ -27,10 +27,10 @@ import type {
   TreeInstance,
   UploadInstance
 } from 'element-plus'
-import { InstallCustomType, Fn, FnRefAble, ArrayAble } from '../tools'
+import { InstallCustomType, Fn, FnRefAble, ArrayAble, LooseRequired } from '../tools'
 import { Component, Ref } from 'vue'
 
-export type FormItemProps<T = unknown> = Partial<FormItemInstance> & {
+export type FormItemProps<T = unknown> = Partial<LooseRequired<FormItemInstance>> & {
   width?: string | number
   show?: FnRefAble<boolean, FormPluginsProps<T>>
   prop?: string | keyof T
