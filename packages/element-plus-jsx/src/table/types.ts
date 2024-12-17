@@ -4,7 +4,7 @@ import type { FnRefAble } from '../tools'
 import { CSSProperties, HTMLAttributes } from 'vue'
 
 export type TableColumn<T = unknown> = Partial<Omit<TableColumnCtx<T>, 'prop'>> & {
-  prop?: string | keyof T
+  prop?: keyof T | (string & {})
   show?: FnRefAble<boolean>
   slots?: {
     default?: (props: { row: T; column: TableColumnCtx<T>; $index: number }) => Component | null

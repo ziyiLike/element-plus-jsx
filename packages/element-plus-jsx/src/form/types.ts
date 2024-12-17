@@ -33,7 +33,7 @@ import { Component, Ref } from 'vue'
 export type FormItemProps<T = unknown> = Partial<Omit<LooseRequired<FormItemInstance>, 'prop'>> & {
   width?: string | number
   show?: FnRefAble<boolean, FormPluginsProps<T>>
-  prop?: string | keyof T
+  prop?: keyof T | (string & {})
   slots?: {
     default?: (args: FormPluginsProps<T>) => Component | null
     row?: (args: FormPluginsProps<T>) => Component | null
