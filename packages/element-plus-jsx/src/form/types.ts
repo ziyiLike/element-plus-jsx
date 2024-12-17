@@ -30,7 +30,7 @@ import type {
 import { InstallCustomType, Fn, FnRefAble, ArrayAble, LooseRequired } from '../tools'
 import { Component, Ref } from 'vue'
 
-export type FormItemProps<T = unknown> = Partial<LooseRequired<FormItemInstance>> & {
+export type FormItemProps<T = unknown> = Partial<Omit<LooseRequired<FormItemInstance>, 'prop'>> & {
   width?: string | number
   show?: FnRefAble<boolean, FormPluginsProps<T>>
   prop?: string | keyof T

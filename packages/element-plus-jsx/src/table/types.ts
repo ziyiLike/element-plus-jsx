@@ -3,7 +3,7 @@ import type { Component, Ref } from 'vue'
 import type { FnRefAble } from '../tools'
 import { CSSProperties, HTMLAttributes } from 'vue'
 
-export type TableColumn<T = unknown> = Partial<TableColumnCtx<T>> & {
+export type TableColumn<T = unknown> = Partial<Omit<TableColumnCtx<T>, 'prop'>> & {
   prop?: string | keyof T
   show?: FnRefAble<boolean>
   slots?: {
