@@ -13,7 +13,10 @@ export type Options<T = any, E = any> = {
   formPlugins?: E[]
 }
 export type WithInstall<T> = T & Plugin
-export type InstallCustomType<T> = Partial<T> & {
+export type InstallCustomType<T> = Partial<LooseRequired<T>> & {
   slots?: Record<string, Fn<Component | null>>
   [key: string]: any
+}
+export type Merge<T, U> = {
+  [K in keyof T | keyof U]?: K extends keyof U ? U[K] : K extends keyof T ? T[K] : never
 }

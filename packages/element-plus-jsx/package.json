@@ -1,6 +1,6 @@
 {
   "name": "element-plus-jsx",
-  "version": "0.0.8-beta",
+  "version": "0.0.13-beta",
   "description": "",
   "module": "es/index.js",
   "exports": {

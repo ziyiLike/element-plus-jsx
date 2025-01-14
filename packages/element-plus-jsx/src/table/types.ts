@@ -1,17 +1,19 @@
 import { TableColumnCtx, TableProps as ElTableProps } from 'element-plus'
 import type { Component, Ref } from 'vue'
-import type { FnRefAble } from '../tools'
+import type { FnRefAble, Merge } from '../tools'
 import { CSSProperties, HTMLAttributes } from 'vue'
 
-export type TableColumn<T = unknown> = Partial<Omit<TableColumnCtx<T>, 'prop'>> & {
-  prop?: keyof T | (string & {})
-  show?: FnRefAble<boolean>
-  slots?: {
-    default?: (props: { row: T; column: TableColumnCtx<T>; $index: number }) => Component | null
-    header?: (props: { column: TableColumnCtx<T> }) => Component | null
-  }
-  [key: string]: any
-}
+export type TableColumn<T = unknown> = Merge<
+  Omit<TableColumnCtx<T>, 'prop'> & {
+    prop?: keyof T | (string & {})
+    show?: FnRefAble<boolean>
+    slots?: {
+      default?: (props: { row: T; column: TableColumnCtx<T>; $index: number }) => Component | null
+      header?: (props: { column: TableColumnCtx<T> }) => Component | null
+    }
+  },
+  ElementPlusJsx.ColumnExtend<T>
+>
 
 export interface TableProps<T = unknown> extends ElTableProps<T> {
   columns: TableColumn<T>[]
