@@ -27,11 +27,11 @@ import type {
   TreeInstance,
   UploadInstance
 } from 'element-plus'
-import { InstallCustomType, Fn, FnRefAble, ArrayAble, LooseRequired, Merge } from '../tools'
+import { InstallCustomType, Fn, FnRefAble, ArrayAble, Mutable, Merge } from '../tools'
 import { Component, Ref } from 'vue'
 
 export type FormItemProps<T = unknown> = Merge<
-  Omit<LooseRequired<FormItemInstance>, 'prop'> & {
+  Omit<Mutable<FormItemInstance>, 'prop'> & {
     width?: string | number
     show?: FnRefAble<boolean, FormPluginsProps<T>>
     prop?: keyof T | (string & {})

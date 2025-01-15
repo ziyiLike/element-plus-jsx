@@ -7,13 +7,14 @@ export type RefAble<T> = Ref<T> | T
 export type FnRefAble<T, R = any> = T | Ref<T> | ((args: R) => T)
 export type LooseRequired<T> = { [P in keyof T & Required<T>]: T[P] }
 export type LooseValueOf<T> = T extends ArrayAble<infer U> ? U : T
+export type Mutable<T> = { -readonly [P in keyof T]: T[P] }
 export type Options<T = any, E = any> = {
   prefix?: string
   tablePlugins?: T[]
   formPlugins?: E[]
 }
 export type WithInstall<T> = T & Plugin
-export type InstallCustomType<T> = Partial<LooseRequired<T>> & {
+export type InstallCustomType<T> = Partial<Mutable<T>> & {
   slots?: Record<string, Fn<Component | null>>
   [key: string]: any
 }
