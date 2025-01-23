@@ -61,7 +61,7 @@ export type FormItemProps<T = unknown> = Merge<
       | 'transfer'
       | 'tree'
       | 'upload'
-      | string
+      | (string & {})
 
     key?: string | number
     rules?: ArrayAble<FormItemRule>
