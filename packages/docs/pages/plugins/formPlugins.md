@@ -39,3 +39,41 @@ const plugins = {
 
 export default plugins
 ```
+
+### 插件类型定义
+
+> 若是插件为配置项新增或者修改了某个属性，需要同步修改类型使其获得类型推断以及提示。
+
+以上述`formDrivicePlugin`插件为例，`type`新增了类型 `drivice`，则可以重写`type`类型以覆盖默认
+
+```typescript
+declare namespace ElementPlusJsx {
+  type ColumnExtend<T> = {}
+
+  type FormFnExtend<T> = {
+    type:
+      | 'input'
+      | 'autocomplete'
+      | 'cascader'
+      | 'checkbox'
+      | 'color-picker'
+      | 'date-picker'
+      | 'mention'
+      | 'radio'
+      | 'rate'
+      | 'select'
+      | 'select-v2'
+      | 'slider'
+      | 'switch'
+      | 'time-picker'
+      | 'time-select'
+      | 'transfer'
+      | 'tree'
+      | 'upload'
+      | (string & {})
+      | 'drivice'
+  }
+}
+```
+
+声明之后，在使用`useFormFn`时配置项`type`会推断提示`drivice`

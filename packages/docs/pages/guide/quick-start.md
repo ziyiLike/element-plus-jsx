@@ -59,6 +59,21 @@ app.use(ElementPlusJSX, {
 app.mount('#app')
 ```
 
+## 全局类型
+
+在项目中声明约定命名空间 ElementPlusJsx，以扩展插件组件的属性。
+
+- `ColumnExtend` 表格列扩展类型
+- `FormFnExtend` 表单组件扩展类型
+
+```typescript
+declare namespace ElementPlusJsx {
+  type ColumnExtend<T> = {}
+
+  type FormFnExtend<T> = {}
+}
+```
+
 #### Options
 
 <div class=vp-table>

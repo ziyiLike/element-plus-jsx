@@ -36,3 +36,22 @@ const plugins = {
 
 export default plugins
 ```
+
+### 插件类型定义
+
+> 若是插件为配置项新增或者修改了某个属性，需要同步修改类型使其获得类型推断以及提示。
+
+以上述`tableEnumPlugin`插件为例，配置项新增了属性 `renderType`以及`enumData`以及`renderType`存在一个枚举类型`enum`，请参考一下例子以覆盖默认
+
+```typescript
+declare namespace ElementPlusJsx {
+  type ColumnExtend<T> = {
+    renderType?: 'enum'
+    enumData?: Record<string, any>
+  }
+
+  type FormFnExtend<T> = {}
+}
+```
+
+声明之后，在使用`useColumns`时配置项会推断提示`renderType`以及`enumData`
