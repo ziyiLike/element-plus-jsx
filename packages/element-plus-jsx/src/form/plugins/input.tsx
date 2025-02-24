@@ -1,10 +1,15 @@
 import { _get, _set } from '../../_utils'
 import { defineFormFnPlugin, useFnOrRefProp } from '../../hooks'
-import { ElInput, ElInputNumber } from 'element-plus'
+import { ElInput, ElInputNumber, ElInputTag } from 'element-plus'
 
 export default defineFormFnPlugin((props) => {
   return props.formFn.map((item) => {
-    const InputEl = item.inputProps?.type === 'input-number' ? ElInputNumber : ElInput
+    const InputEl =
+      item.inputProps?.type === 'input-number'
+        ? ElInputNumber
+        : item.inputProps?.type === 'input-tag'
+        ? ElInputTag
+        : ElInput
     if (!item.slots?.default && item.type === 'input') {
       return {
         ...item,

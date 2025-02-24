@@ -5,6 +5,7 @@ import type {
   FormInstance,
   InputInstance,
   InputNumberInstance,
+  InputTagInstance,
   AutocompleteInstance,
   CascaderInstance,
   CheckboxGroupInstance,
@@ -69,7 +70,7 @@ export type FormItemProps<T = unknown> = Merge<
     disabled?: FnRefAble<boolean, FormPluginsProps<T>>
 
     // install type.
-    inputProps?: InstallCustomType<InputInstance | InputNumberInstance>
+    inputProps?: InstallCustomType<InputInstance | InputNumberInstance | InputTagInstance>
     autocompleteProps?: InstallCustomType<AutocompleteInstance>
     cascaderProps?: InstallCustomType<CascaderInstance>
     checkboxProps?: InstallCustomType<CheckboxGroupInstance & { button: boolean }>

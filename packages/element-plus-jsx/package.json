@@ -1,6 +1,6 @@
 {
   "name": "element-plus-jsx",
-  "version": "0.0.15-beta",
+  "version": "0.0.16-beta",
   "description": "",
   "module": "es/index.js",
   "exports": {
@@ -34,7 +34,7 @@
   "license": "MIT",
   "homepage": "https://github.com/ziyiLike/element-plus-jsx.git",
   "dependencies": {
-    "element-plus": "^2.8.6",
+    "element-plus": "^2.9.0",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.29"
   },
