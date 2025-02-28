@@ -25,6 +25,7 @@ export default defineConfig({
         items: [
           { text: '快速上手', link: '/pages/guide/quick-start' },
           { text: 'JSX配置', link: '/pages/guide/jsx' },
+          { text: '版本变更', link: '/pages/guide/change-log' },
           { text: '常见问题', link: '/pages/guide/qa' }
         ]
       },

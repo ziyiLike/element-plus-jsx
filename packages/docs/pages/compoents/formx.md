@@ -179,6 +179,38 @@ const formFn = useFormFn([
 
 :::
 
+### el-input-tag
+
+透传 input 的 inputProps 属性`type`设置为`input-tag`时渲染`el-input-tag`组件
+
+:::demo
+
+```vue
+<template>
+  <el-formx :model="form" :formFn="formFn" />
+</template>
+
+<script setup lang="tsx">
+import { useFormFn } from 'element-plus-jsx'
+import { ref } from 'vue'
+
+const form = ref({})
+
+const formFn = useFormFn([
+  {
+    label: '标签组',
+    prop: 'tagGroup',
+    type: 'input',
+    inputProps: {
+      type: 'input-tag'
+    }
+  }
+])
+</script>
+```
+
+:::
+
 ### el-checkbox-button
 
 透传 checkbox 的 checkboxProps 属性`button`设置为`true`时渲染`el-checkbox-button`组件。<br/>

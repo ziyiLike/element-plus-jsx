@@ -6,9 +6,25 @@ outline: deep
 
 跟随以下的步骤，快速上手组件库的使用。
 
+:::warning
+
+组件目前还处于 Beta 阶段，请谨慎用于生产环境
+
+:::
+
 ## Vue 版本
 
 vue >= 3.4
+
+## Element Plus 版本
+
+:::tip
+
+Element Plus Jsx 最新版本组件同步支持 Element Plus 最新版本，若项目本身 Element Plus 低于插件版本也可兼容，但部分插件功能会受 Element Plus 版本限制，请根据实际情况选择。
+
+:::
+
+element-plus >= 2.9.0
 
 ## 安装
 

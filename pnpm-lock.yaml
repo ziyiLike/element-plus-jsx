@@ -9,7 +9,7 @@ importers:
     specifiers:
       '@vitejs/plugin-vue': ^5.1.4
       '@vitejs/plugin-vue-jsx': ^4.0.0
-      element-plus: ^2.8.6
+      element-plus: ^2.9.0
       element-plus-jsx: workspace
       postcss: ^8.4.47
       vite: ^5.4.8
@@ -20,7 +20,7 @@ importers:
     dependencies:
       '@vitejs/plugin-vue': 5.1.4_vite@5.4.10+vue@3.5.12
       '@vitejs/plugin-vue-jsx': 4.0.1_vite@5.4.10+vue@3.5.12
-      element-plus: 2.8.6_vue@3.5.12
+      element-plus: 2.9.5_vue@3.5.12
       element-plus-jsx: link:../element-plus-jsx
       vite: 5.4.10
       vite-plugin-inspect: 0.8.7_vite@5.4.10
@@ -1942,7 +1942,7 @@ packages:
       lodash-unified: 1.0.3_vpgwo5v3ie2bia5ss74pgoa5ly
       memoize-one: 6.0.0
       normalize-wheel-es: 1.2.0
-      vue: 3.5.12
+      vue: 3.5.12_typescript@5.6.3
     transitivePeerDependencies:
       - '@vue/composition-api'
     dev: false
@@ -1967,7 +1967,7 @@ packages:
       lodash-unified: 1.0.3_vpgwo5v3ie2bia5ss74pgoa5ly
       memoize-one: 6.0.0
       normalize-wheel-es: 1.2.0
-      vue: 3.5.12_typescript@5.6.3
+      vue: 3.5.12
     transitivePeerDependencies:
       - '@vue/composition-api'
     dev: false
