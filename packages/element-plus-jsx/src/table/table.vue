@@ -1,5 +1,11 @@
 <script lang="tsx">
-import { defineComponent, getCurrentInstance, shallowReactive, shallowRef } from 'vue'
+import {
+  defineComponent,
+  getCurrentInstance,
+  onBeforeMount,
+  shallowReactive,
+  shallowRef
+} from 'vue'
 import type { PropType } from 'vue'
 import type { TableColumn } from './types'
 import { ElTable, ElTableColumn, type TableInstance } from 'element-plus'
@@ -16,7 +22,9 @@ export default defineComponent({
     const tableRef = shallowRef<TableInstance>()
     const plugins = getConfig(getCurrentInstance()!, 'tablePlugins') || []
 
-    plugins.push(...props.plugins)
+    onBeforeMount(() => {
+      plugins.push(...props.plugins)
+    })
 
     ctx.expose({ tableRef })
 

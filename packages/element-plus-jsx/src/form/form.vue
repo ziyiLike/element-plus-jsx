@@ -1,5 +1,12 @@
 <script lang="tsx">
-import { defineComponent, getCurrentInstance, shallowReactive, shallowRef, useModel } from 'vue'
+import {
+  defineComponent,
+  getCurrentInstance,
+  onBeforeMount,
+  shallowReactive,
+  shallowRef,
+  useModel
+} from 'vue'
 import type { PropType } from 'vue'
 import type { FormInstance } from 'element-plus'
 import { ElForm, ElFormItem } from 'element-plus'
@@ -19,8 +26,10 @@ export default defineComponent({
     const formRef = shallowRef<FormInstance>()
     const plugins = getConfig(getCurrentInstance()!, 'formPlugins') || []
 
-    // install default plugins
-    plugins.push(...defaultPlugins, ...props.plugins)
+    onBeforeMount(() => {
+      // install default plugins
+      plugins.push(...defaultPlugins, ...props.plugins)
+    })
 
     ctx.expose({ formRef })
 
