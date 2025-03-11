@@ -11,6 +11,7 @@ import defaultPlugins from './plugins'
 export default defineComponent({
   props: {
     model: { type: Object as PropType<any>, default: () => ({}) },
+    plugins: { type: Array as PropType<any[]>, default: () => [] },
     formFn: { type: Array as PropType<FormItemProps[]>, default: () => [] }
   },
   setup(props, ctx) {
@@ -19,7 +20,7 @@ export default defineComponent({
     const plugins = getConfig(getCurrentInstance()!, 'formPlugins') || []
 
     // install default plugins
-    plugins.push(...defaultPlugins)
+    plugins.push(...defaultPlugins, ...props.plugins)
 
     ctx.expose({ formRef })
 

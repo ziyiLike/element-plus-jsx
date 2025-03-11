@@ -9,11 +9,14 @@ import { getConfig, installPlugins } from '../_utils'
 export default defineComponent({
   props: {
     data: { type: Array, default: () => [] },
+    plugins: { type: Array as PropType<any[]>, default: () => [] },
     columns: { type: Array as PropType<TableColumn[]>, default: () => [], required: true }
   },
   setup(props, ctx) {
     const tableRef = shallowRef<TableInstance>()
     const plugins = getConfig(getCurrentInstance()!, 'tablePlugins') || []
+
+    plugins.push(...props.plugins)
 
     ctx.expose({ tableRef })
 
