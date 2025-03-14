@@ -34,7 +34,7 @@ export type TablePluginsProps<T = unknown> = {
  * @example
  * const xxxTableplugin = defineColumnsPlugin((props) => props.columns)
  */
-export function defineColumnsPlugin<T = unknown>(fn: (props: TablePluginsProps) => TableColumn<T>[]) {
+export function defineColumnsPlugin<T = unknown>(fn: (props: TablePluginsProps<T>) => TableColumn<T>[]) {
   return fn
 }
 ```

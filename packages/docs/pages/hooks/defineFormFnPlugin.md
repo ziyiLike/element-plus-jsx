@@ -33,7 +33,7 @@ export type FormPluginsProps<T = unknown> = {
  * @example
  * const xxxFormplugin = defineFormFnPlugin((props) => props.formFn)
  */
-export function defineFormFnPlugin<T = unknown>(fn: (props: FormPluginsProps) => FormItemProps<T>[]) {
+export function defineFormFnPlugin<T = unknown>(fn: (props: FormPluginsProps<T>) => FormItemProps<T>[]) {
   return fn
 }
 ```

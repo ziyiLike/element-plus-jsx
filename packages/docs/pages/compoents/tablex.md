@@ -8,16 +8,18 @@ outline: deep
 
 #### 基础使用
 
-在`el-table`基础上仅增加一个属性`columns`, 接收一个数组，用于配置相应的表格列，所有属性均透传至`el-table-column`。`
+在`el-table`基础上仅增加一个属性`columns`, 接收一个数组，用于配置相应的表格列，所有属性均透传至`el-table-column`。
 
-> 推荐使用 Hook `useColumns` 提供配置项提示以及对应类型检查。
+::: info
+推荐使用 Hook `useColumns` 提供配置项提示以及对应类型检查。
+:::
 
 :::demo
 
 ```vue
 <template>
   <el-button style="margin-bottom:20px" @click="handleGetClickRow">选中</el-button>
-  <el-tablex ref="tableRef" class="vp-raw" border :data="data" :columns="columns" />
+  <el-tablex ref="tableRef" border :data="data" :columns="columns" />
 </template>
 
 <script setup lang="tsx">
@@ -112,8 +114,9 @@ const handleGetClickRow = () => {
 
 <div class=vp-table>
 
-| 名称    | 类型               | 默认值 | 说明       |
-| ------- | ------------------ | ------ | ---------- |
-| columns | `TableColumn<T>[]` | []     | 表格列配置 |
+| 名称    | 类型                       | 默认值 | 说明             |
+| ------- | -------------------------- | ------ | ---------------- |
+| columns | `TableColumn<T>[]`         | []     | 表格列配置       |
+| plugins | `Fn<TableColumn<any>[]>[]` | []     | 表格插件（额外） |
 
 </div>

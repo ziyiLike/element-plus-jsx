@@ -6,7 +6,9 @@ outline: deep
 
 为了便于使用，以及获得良好的扩展性，`element-plus-jsx`提供了对应的插件系统。
 
-> 使用插件可以将功能进行更加系统的封装，也为一些复杂的需求提供了更多的定制的可能。 maybe 未来会有更多的插件生态可以使用呢。
+::: info
+使用插件可以将功能进行更加系统的封装，也为一些复杂的需求提供了更多的定制的可能。
+:::
 
 ## 装配方式
 
@@ -22,8 +24,7 @@ import plugins from './plugins'
 const app = createApp(App)
 app.use(ElementPlus)
 app.use(ElementPlusJSX, {
-  prefix: 'el',
-  tablePlugins: plugins.tablePlugins
+  tablePlugins: plugins.tablePlugins,
   formPlugins: plugins.formPlugins
 })
 app.mount('#app')

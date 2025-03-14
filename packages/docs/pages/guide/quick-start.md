@@ -71,6 +71,7 @@ app.use(ElementPlus)
 app.use(ElementPlusJSX, {
   prefix: 'el',
   tablePlugins: plugins.tablePlugins
+  formPlugins: plugins.formPlugins
 })
 app.mount('#app')
 ```
@@ -94,10 +95,10 @@ declare namespace ElementPlusJsx {
 
 <div class=vp-table>
 
-| 名称         | 类型                    | 默认值 | 说明       |
-| ------------ | ----------------------- | ------ | ---------- |
-| prefix       | string                  | `el`   | 组件名前缀 |
-| tablePlugins | `Fn<TableColumn[]>[]`   | []     | 表格插件   |
-| formPlugins  | `Fn<FormItemProps[]>[]` | []     | 表单插件   |
+| 名称         | 类型                              | 默认值 | 说明       |
+| ------------ | --------------------------------- | ------ | ---------- |
+| prefix       | string                            | `el`   | 组件名前缀 |
+| tablePlugins | `Fn<TableColumn<T=unknow>[]>[]`   | []     | 表格插件   |
+| formPlugins  | `Fn<FormItemProps<T=unknow>[]>[]` | []     | 表单插件   |
 
 </div>

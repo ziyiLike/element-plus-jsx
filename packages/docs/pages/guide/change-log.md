@@ -4,6 +4,13 @@ outline: deep
 
 # Change Log
 
+- ⚡ 0.0.19-beta 增加单组件插件支持, 使用优化
+
+  1.  ElFormx 组件支持 plugins Props
+  2.  ElTablex 组件支持 plugins Props
+  3.  defineFormFnPlugin 和 defineColumnsPlugin 参数透传泛型参数
+  4.  组件 install 时插件参数透传泛型参数
+
 - ✈️ 0.0.16-beta 升级 Element-ui 版本至 2.9.5 支持 el-input-tag
 
 - 🚀 0.0.15-beta 新增类型约定命名空间引用 & build types

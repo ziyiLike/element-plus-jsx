@@ -1,6 +1,6 @@
 import { TableColumnCtx, TableProps as ElTableProps } from 'element-plus'
 import type { Component, Ref } from 'vue'
-import type { FnRefAble, Merge } from '../tools'
+import type { Fn, FnRefAble, Merge } from '../tools'
 import { CSSProperties, HTMLAttributes } from 'vue'
 
 export type TableColumn<T = unknown> = Merge<
@@ -17,7 +17,7 @@ export type TableColumn<T = unknown> = Merge<
 
 export interface TableProps<T = unknown> extends ElTableProps<T> {
   columns: TableColumn<T>[]
-  plugins: any[]
+  plugins: Fn<TableColumn<any>[]>[]
   class?: HTMLAttributes['class']
   style?: CSSProperties
 }

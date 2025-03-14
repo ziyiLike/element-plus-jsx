@@ -108,7 +108,7 @@ export type FormItemProps<T = unknown> = Merge<
     disabled?: FnRefAble<boolean, FormPluginsProps<T>>
 
     // install type.
-    inputProps?: InstallCustomType<InputInstance | InputNumberInstance>
+    inputProps?: InstallCustomType<InputInstance | InputNumberInstance | InputTagInstance>
     autocompleteProps?: InstallCustomType<AutocompleteInstance>
     cascaderProps?: InstallCustomType<CascaderInstance>
     checkboxProps?: InstallCustomType<CheckboxGroupInstance & { button: boolean }>
@@ -144,6 +144,7 @@ export type FormProps<T = unknown> = ElFormProps & {
   slots?: {
     default?: Fn<Component | null>
   }
+  plugins: Fn<FormItemProps<any>[]>[]
   formFn: FnAble<FormItemProps[]>
   [key: string]: any
 }
