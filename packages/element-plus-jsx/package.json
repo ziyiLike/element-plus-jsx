@@ -1,6 +1,6 @@
 {
   "name": "element-plus-jsx",
-  "version": "0.0.18-beta",
+  "version": "0.0.19-beta",
   "description": "",
   "module": "es/index.js",
   "exports": {
@@ -24,8 +24,11 @@
     "element-plus",
     "jsx",
     "tsx",
+    "json-form",
+    "json-table",
     "table column",
-    "form dialog"
+    "form dialog",
+    "element-plus-jsx"
   ],
   "files": [
     "es"

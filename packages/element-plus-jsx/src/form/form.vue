@@ -28,7 +28,7 @@ export default defineComponent({
 
     onBeforeMount(() => {
       // install default plugins
-      plugins.push(...defaultPlugins, ...props.plugins)
+      plugins.push(...props.plugins, ...defaultPlugins)
     })
 
     ctx.expose({ formRef })

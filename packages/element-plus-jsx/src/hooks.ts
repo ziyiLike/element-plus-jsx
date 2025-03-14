@@ -66,7 +66,7 @@ export function defineColumns<T = unknown>(fn: Fn<TableColumn<T>[]>) {
  * const xxxTableplugin = defineColumnsPlugin((props) => props.columns)
  */
 export function defineColumnsPlugin<T = unknown>(
-  fn: (props: TablePluginsProps) => TableColumn<T>[]
+  fn: (props: TablePluginsProps<T>) => TableColumn<T>[]
 ) {
   return fn
 }
@@ -128,7 +128,7 @@ export function defineFormFn<T = unknown>(fn: Fn<FormItemProps<T>[]>) {
  * const xxxFormplugin = defineFormFnPlugin((props) => props.formFn)
  */
 export function defineFormFnPlugin<T = unknown>(
-  fn: (props: FormPluginsProps) => FormItemProps<T>[]
+  fn: (props: FormPluginsProps<T>) => FormItemProps<T>[]
 ) {
   return fn
 }

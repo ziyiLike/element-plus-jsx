@@ -7,7 +7,7 @@ import { setGlobalConfig } from './_utils/index'
 
 const components: Record<string, Plugin> = { ElTablex, ElFormx }
 
-const install = (app: App, options?: Options<Fn<TableColumn[]>, Fn<FormItemProps[]>>) => {
+const install = (app: App, options?: Options<Fn<TableColumn<any>[]>, Fn<FormItemProps<any>[]>>) => {
   if (options?.tablePlugins) {
     setGlobalConfig(app, { tablePlugins: options.tablePlugins })
   }
