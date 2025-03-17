@@ -30,14 +30,13 @@ export default defineConfig({
 })
 ```
 
-同时，在`tsconfig.json`中启用
+若使用 Typescript，在`tsconfig.json`中设置：
 
 ```json
 {
   "compilerOptions": {
     ···
     "jsx": "preserve",
-    "jsxImportSource": "vue"
     ···
   },
   "include": ["./**/*.ts", "./**/*.d.ts", "./**/*.tsx", "./**/*.vue"]

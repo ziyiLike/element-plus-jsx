@@ -4,7 +4,7 @@ outline: deep
 
 # 常见问题
 
-### 在使用 vite 的 elemtn-plus 自动导入插件时会导致冲突报错如何解决？
+### 在使用 vite 的 elemtnt-plus 自动导入插件时会导致冲突报错如何解决？
 
 - ##### 解决方案 1
 
@@ -64,7 +64,7 @@ import 'element-plus/dist/index.css'
 import 'element-plus/es/components/input/style'
 ```
 
-### 在使用 vite 的 elemtn-plus 自动导入插件时，自定义插件中使用的 element-plus 组件不生效如何解决？
+### 在使用 vite 的 elemtnt-plus 自动导入插件时，自定义插件中使用的 element-plus 组件不生效如何解决？
 
 element-plus 的自动导入插件默认只解析 vue 文件中使用的组件，将 tsx 添加到解析即可
 
@@ -76,7 +76,7 @@ export default defineConfig({
   plugins: [
     ···
     Components({
-      extensions: ['vue', 'tsx'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/],
       ···
     })
   ]

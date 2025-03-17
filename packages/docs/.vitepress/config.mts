@@ -51,6 +51,7 @@ export default defineConfig({
             text: 'Tablex',
             items: [
               { text: 'useColumns', link: '/pages/hooks/useColumns.md' },
+              { text: 'useSetTablexProps', link: '/pages/hooks/useSetTablexProps.md' },
               { text: 'defineColumns', link: '/pages/hooks/defineColumns.md' },
               { text: 'defineColumnsPlugin', link: '/pages/hooks/defineColumnsPlugin.md' }
             ]
@@ -59,6 +60,7 @@ export default defineConfig({
             text: 'Formx',
             items: [
               { text: 'useFormFn', link: '/pages/hooks/useFormFn.md' },
+              { text: 'useSetFormxProps', link: '/pages/hooks/useSetFormxProps.md' },
               { text: 'defineFormFn', link: '/pages/hooks/defineFormFn.md' },
               { text: 'defineFormFnPlugin', link: '/pages/hooks/defineFormFnPlugin.md' }
             ]
