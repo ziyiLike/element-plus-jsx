@@ -16,7 +16,9 @@ export {
   useFormFn,
   defineFormFn,
   defineFormFnPlugin,
-  useFnOrRefProp
+  useFnOrRefProp,
+  useSetFormxProps,
+  useSetTablexProps
 } from './hooks'
 
 export type {} from './components'

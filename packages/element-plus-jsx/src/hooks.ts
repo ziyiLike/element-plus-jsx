@@ -1,8 +1,8 @@
 import { isRef } from 'vue'
 import type { App } from 'vue'
-import { TableColumn, TablePluginsProps } from './table/types'
+import { TableColumn, TablePluginsProps, TableProps } from './table/types'
 import type { Fn, Options, WithInstall } from './tools'
-import { FormItemProps, FormPluginsProps } from './form/types'
+import { FormItemProps, FormPluginsProps, FormProps } from './form/types'
 
 export function useFnOrRefProp<T = any>(prop: any, ...args: any[]): T {
   return typeof prop === 'function' ? prop(...args) : isRef(prop) ? prop.value : prop
@@ -131,6 +131,38 @@ export function defineFormFnPlugin<T = unknown>(
   fn: (props: FormPluginsProps<T>) => FormItemProps<T>[]
 ) {
   return fn
+}
+
+/**
+ * 设置Tablex属性 提供类型check
+ * @param props 属性
+ * @returns
+ *
+ * @example
+ * const props = useSetTablexProps({
+ *   ···
+ * })
+ *
+ * <el-tablex v-bind="props" />
+ */
+export function useSetTablexProps<T = unknown>(props: TableProps<T>) {
+  return props
+}
+
+/**
+ * 设置Formx属性 提供类型check
+ * @param props 属性
+ * @returns
+ *
+ * @example
+ * const props = useSetFormxProps({
+ *   ···
+ * })
+ *
+ * <el-formx v-bind="props" />
+ */
+export function useSetFormxProps<T = unknown>(props: FormProps<T>) {
+  return props
 }
 
 /**

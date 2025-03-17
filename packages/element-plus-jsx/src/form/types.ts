@@ -106,8 +106,8 @@ export type FormProps<T = unknown> = ElFormProps & {
   slots?: {
     default?: Fn<Component | null>
   }
-  plugins: Fn<FormItemProps<any>[]>[]
-  formFn: FormItemProps[]
+  plugins?: Fn<FormItemProps<any>[]>[]
+  formFn?: FormItemProps[]
   [key: string]: any
 }
 

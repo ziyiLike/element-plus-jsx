@@ -16,10 +16,11 @@ export type TableColumn<T = unknown> = Merge<
 >
 
 export interface TableProps<T = unknown> extends ElTableProps<T> {
-  columns: TableColumn<T>[]
-  plugins: Fn<TableColumn<any>[]>[]
+  columns?: TableColumn<T>[]
+  plugins?: Fn<TableColumn<any>[]>[]
   class?: HTMLAttributes['class']
   style?: CSSProperties
+  [key: string]: any
 }
 
 export type TablePluginsProps<T = unknown> = {
