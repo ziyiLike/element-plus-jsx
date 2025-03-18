@@ -341,10 +341,10 @@ const formFn = useFormFn([
 
 <div class=vp-table>
 
-| 名称    | 类型                         | 默认值 | 说明             |
-| ------- | ---------------------------- | ------ | ---------------- |
-| formFn  | `FormItemProps<T>[]`         | []     | 表单配置项       |
-| plugins | `Fn<FormItemProps<any>[]>[]` | []     | 表单插件（额外） |
+| 名称    | 类型                         | 默认值 | 说明                            |
+| ------- | ---------------------------- | ------ | ------------------------------- |
+| formFn  | `FormItemProps<T>[]`         | []     | 表单配置项                      |
+| plugins | `Fn<FormItemProps<any>[]>[]` | []     | 表单插件（优先级最高 level: 1） |
 
 </div>
 

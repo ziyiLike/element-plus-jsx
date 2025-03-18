@@ -12,6 +12,12 @@ outline: deep
 
 ## 装配方式
 
+插件装配优先级 level 1 > level 2 > level 3
+
+#### 1. 全局注册
+
+插件全局生效，优先级：level 3
+
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -28,6 +34,24 @@ app.use(ElementPlusJSX, {
   formPlugins: plugins.formPlugins
 })
 app.mount('#app')
+```
+
+#### 2. 使用配置组件 `el-providerx`
+
+插件全局生效，优先级：level 2
+
+```vue
+<el-providerx :tablePlugins="plugins.tablePlugins" :formPlugins="plugins.formPlugins">
+  ···
+</el-providerx>
+```
+
+#### 3. 组件内配置
+
+插件当前组件生效，优先级：level 1
+
+```vue
+<el-tablex :Plugins="plugins.formPlugins">
 ```
 
 ## 插件类型

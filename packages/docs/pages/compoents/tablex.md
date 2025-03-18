@@ -114,9 +114,9 @@ const handleGetClickRow = () => {
 
 <div class=vp-table>
 
-| 名称    | 类型                       | 默认值 | 说明             |
-| ------- | -------------------------- | ------ | ---------------- |
-| columns | `TableColumn<T>[]`         | []     | 表格列配置       |
-| plugins | `Fn<TableColumn<any>[]>[]` | []     | 表格插件（额外） |
+| 名称    | 类型                       | 默认值 | 说明                            |
+| ------- | -------------------------- | ------ | ------------------------------- |
+| columns | `TableColumn<T>[]`         | []     | 表格列配置                      |
+| plugins | `Fn<TableColumn<any>[]>[]` | []     | 表格插件（优先级最高 level: 1） |
 
 </div>

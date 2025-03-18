@@ -4,6 +4,8 @@ outline: deep
 
 # Change Log
 
+- ⚡ 0.0.23-beta 新增组件 `ElProviderx`
+
 - ⚡ 0.0.20-beta 新增 hook `useSetTablexProps` 和 `useSetFormxProps`
 
 - ⚡ 0.0.19-beta 增加单组件插件支持, 使用优化

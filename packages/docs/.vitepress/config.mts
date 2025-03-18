@@ -30,11 +30,15 @@ export default defineConfig({
         ]
       },
       {
-        text: '组件',
+        text: '基础组件',
         items: [
           { text: 'Tablex', link: '/pages/compoents/tablex' },
           { text: 'Formx', link: '/pages/compoents/formx' }
         ]
+      },
+      {
+        text: '配置组件',
+        items: [{ text: 'Providerx', link: '/pages/compoents/providerx' }]
       },
       {
         text: '插件',
