@@ -2,6 +2,7 @@
 import {
   defineComponent,
   getCurrentInstance,
+  inject,
   onBeforeMount,
   shallowReactive,
   shallowRef
@@ -11,6 +12,7 @@ import type { TableColumn } from './types'
 import { ElTable, ElTableColumn, type TableInstance } from 'element-plus'
 import { useFnOrRefProp } from '../hooks'
 import { getConfig, installPlugins } from '../_utils'
+import { providerInjectKey } from '../provider/context'
 
 export default defineComponent({
   props: {
@@ -21,9 +23,10 @@ export default defineComponent({
   setup(props, ctx) {
     const tableRef = shallowRef<TableInstance>()
     const plugins = getConfig(getCurrentInstance()!, 'tablePlugins') || []
+    const { tableProps = {}, tablePlugins = [] } = inject(providerInjectKey, {})
 
     onBeforeMount(() => {
-      plugins.push(...props.plugins)
+      plugins.push(...props.plugins, ...tablePlugins)
     })
 
     ctx.expose({ tableRef })
@@ -31,7 +34,7 @@ export default defineComponent({
     return () => (
       <ElTable
         ref={tableRef}
-        {...ctx.attrs}
+        {...{ ...tableProps, ...ctx.attrs }}
         v-slots={ctx.slots}
         data={props.data}
         element-loading-text={ctx.attrs.elementLoadingText || 'Loading ...'}

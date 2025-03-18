@@ -18,6 +18,7 @@ type IForm = {
   age: number;
   sex: string;
   address: string;
+  file: any[];
 };
 
 const formRef = ref();
@@ -27,6 +28,7 @@ const form = ref<IForm>({
   age: 0,
   sex: '',
   address: '',
+  file: [],
 });
 
 const formFn = useFormFn<IForm>(
@@ -47,7 +49,7 @@ const formFn = useFormFn<IForm>(
       type: 'input',
       label: '年龄',
       inputProps: {
-        type: 'inputNumber',
+        type: 'number',
       },
     },
     {
@@ -69,7 +71,7 @@ const formFn = useFormFn<IForm>(
       },
     },
     {
-      prop: 'address',
+      prop: 'file',
       type: 'upload',
       uploadProps: {
         slots: {
@@ -77,14 +79,6 @@ const formFn = useFormFn<IForm>(
         },
       },
       label: '地址',
-    },
-    {
-      width: 100,
-      slots: {
-        default: () => {
-          return <el-button onClick={submit}>添加</el-button>;
-        },
-      },
     },
   ],
   { width: 50 }

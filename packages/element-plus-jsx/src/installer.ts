@@ -1,11 +1,12 @@
 import ElTablex, { TableColumn } from './table'
 import ElFormx, { FormItemProps } from './form'
+import { ElProviderx } from './provider'
 
 import type { App, Plugin } from 'vue'
 import { Fn, Options } from './tools'
 import { setGlobalConfig } from './_utils/index'
 
-const components: Record<string, Plugin> = { ElTablex, ElFormx }
+const components: Record<string, Plugin> = { ElTablex, ElFormx, ElProviderx }
 
 const install = (app: App, options?: Options<Fn<TableColumn<any>[]>, Fn<FormItemProps<any>[]>>) => {
   if (options?.tablePlugins) {

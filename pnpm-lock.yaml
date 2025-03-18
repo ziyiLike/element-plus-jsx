@@ -73,14 +73,14 @@ importers:
     specifiers:
       '@vitejs/plugin-vue': ^5.1.4
       '@vitejs/plugin-vue-jsx': ^4.0.0
-      element-plus: ^2.8.6
+      element-plus: ^2.9.0
       element-plus-jsx: workspace
       typescript: ^5.5.3
       vite: ^5.4.8
       vue: ^3.5.10
       vue-tsc: ^2.1.6
     dependencies:
-      element-plus: 2.8.6_vue@3.5.12
+      element-plus: 2.9.5_vue@3.5.12
       element-plus-jsx: link:../element-plus-jsx
       vue: 3.5.12_typescript@5.6.3
     devDependencies:
@@ -1921,31 +1921,6 @@ packages:
 
   /electron-to-chromium/1.5.41:
     resolution: {integrity: sha512-dfdv/2xNjX0P8Vzme4cfzHqnPm5xsZXwsolTYr0eyW18IUmNyG08vL+fttvinTfhKfIKdRoqkDIC9e9iWQCNYQ==}
-
-  /element-plus/2.8.6_vue@3.5.12:
-    resolution: {integrity: sha512-fk5jB8V3efM02/4roZ5SWOLArgaYXbxEydZLlXSr+KPAwjNyHBlk2+HO5em8YKo5+RLBoHnn6BaThj6IE4nXoQ==}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      '@ctrl/tinycolor': 3.6.1
-      '@element-plus/icons-vue': 2.3.1_vue@3.5.12
-      '@floating-ui/dom': 1.6.11
-      '@popperjs/core': /@sxzz/popperjs-es/2.11.7
-      '@types/lodash': 4.17.12
-      '@types/lodash-es': 4.17.12
-      '@vueuse/core': 9.13.0_vue@3.5.12
-      async-validator: 4.2.5
-      dayjs: 1.11.13
-      escape-html: 1.0.3
-      lodash: 4.17.21
-      lodash-es: 4.17.21
-      lodash-unified: 1.0.3_vpgwo5v3ie2bia5ss74pgoa5ly
-      memoize-one: 6.0.0
-      normalize-wheel-es: 1.2.0
-      vue: 3.5.12_typescript@5.6.3
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-    dev: false
 
   /element-plus/2.9.5_vue@3.5.12:
     resolution: {integrity: sha512-r+X79oogLbYq8p9L5f9fHSHhUFNM0AL72aikqiZVxSc2/08mK6m/PotiB9e/D90QmWTIHIaFnFmW65AcXmneig==}

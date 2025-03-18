@@ -2,6 +2,7 @@
 import {
   defineComponent,
   getCurrentInstance,
+  inject,
   onBeforeMount,
   shallowReactive,
   shallowRef,
@@ -14,6 +15,7 @@ import { FormItemProps } from './types'
 import { getConfig, installPlugins, transWidth } from '../_utils'
 import { useFnOrRefProp } from '../hooks'
 import defaultPlugins from './plugins'
+import { providerInjectKey } from '../provider/context'
 
 export default defineComponent({
   props: {
@@ -25,10 +27,11 @@ export default defineComponent({
     const form = useModel(props, 'model')
     const formRef = shallowRef<FormInstance>()
     const plugins = getConfig(getCurrentInstance()!, 'formPlugins') || []
+    const { formProps = {}, formPlugins = [] } = inject(providerInjectKey, {})
 
     onBeforeMount(() => {
       // install default plugins
-      plugins.push(...props.plugins, ...defaultPlugins)
+      plugins.push(...props.plugins, ...formPlugins, ...defaultPlugins)
     })
 
     ctx.expose({ formRef })
@@ -37,7 +40,7 @@ export default defineComponent({
       <ElForm
         style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}
         ref={formRef}
-        {...ctx.attrs}
+        {...{ ...formProps, ...ctx.attrs }}
         v-slots={ctx.slots}
         model={form.value}
       >
