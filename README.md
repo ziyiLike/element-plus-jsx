@@ -4,7 +4,7 @@
 
 ## 文档
 
-[中文文档](http://epx.ziyilike.com/)
+[中文文档](https://epx.ziyilike.com/)
 
 ## Vue 版本
 
